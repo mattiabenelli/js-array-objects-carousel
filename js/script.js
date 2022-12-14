@@ -6,22 +6,22 @@ const games = [
     },
     {
         img: "02.webp",
-        nome: "spiderman",
+        nome: "rachet",
         descrizione: "gioco 2",
     },     
     {
         img: "03.webp",
-        nome: "spiderman",
+        nome: "fortnite",
         descrizione: "gioco 3",
     }, 
     {
         img: "04.webp",
-        nome: "spiderman",
+        nome: "stray",
         descrizione: "gioco 4",
     },
     {
         img: "05.webp",
-        nome: "spiderman",
+        nome: "avengers",
         descrizione: "gioco 5",
     } 
 ]
@@ -31,7 +31,7 @@ let activeItems = 0
 function nextImage (){
    
     next.addEventListener('click', function(){
-        if(activeItems < 3){
+        if(activeItems < games.length -1){
             console.log(activeItems)
         
         items[activeItems].classList.remove('active');
@@ -46,6 +46,7 @@ function nextImage (){
     })
 }
 function previousImage (){
+    
     prev.addEventListener('click', function(){
         if(activeItems > 0){
             items[activeItems].classList.remove('active');
