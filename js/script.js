@@ -29,36 +29,30 @@ let itemsContent = "";
 let activeItems = 0
 
 function nextImage (){
-   
-    next.addEventListener('click', function(){
-        if(activeItems < games.length -1){
-            console.log(activeItems)
+    if(activeItems < games.length -1){
+        console.log(activeItems)
         
+    items[activeItems].classList.remove('active');
+    activeItems++;
+    items[activeItems].classList.add('active');
+    }
+    else{
         items[activeItems].classList.remove('active');
-        activeItems++;
+        activeItems = 0;
         items[activeItems].classList.add('active');
-        }
-        else{
-            items[activeItems].classList.remove('active');
-            activeItems = 0;
-            items[activeItems].classList.add('active');
-           }
-    })
+    }
 }
 function previousImage (){
-    
-    prev.addEventListener('click', function(){
-        if(activeItems > 0){
-            items[activeItems].classList.remove('active');
-            activeItems--;
-            items[activeItems].classList.add('active');
-        }
-        else{
-            items[activeItems].classList.remove('active');
-            activeItems = games.length -1;
-            items[activeItems].classList.add('active');
-            }
-    })
+    if(activeItems > 0){
+        items[activeItems].classList.remove('active');
+        activeItems--;
+        items[activeItems].classList.add('active');
+    }
+    else{
+        items[activeItems].classList.remove('active');
+        activeItems = games.length -1;
+        items[activeItems].classList.add('active');
+    }
 }
 
 games.forEach((elem) => {
@@ -80,5 +74,11 @@ const items = document.getElementsByClassName( 'item')
 
 items[activeItems].classList.add('active');
 
-nextImage()
-previousImage ()
+next.addEventListener('click', function(){
+    nextImage()    
+})
+setInterval(nextImage,4000)
+
+prev.addEventListener('click', function(){
+    previousImage ()   
+})
